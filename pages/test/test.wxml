@@ -1,0 +1,73 @@
+<!--pages/test/test.wxml-->
+
+<!--员工模板-->
+<template name="staffName">
+<!-- {{#name}}
+<view>
+FirstName:{{firstName}},LastName:{{lastName}}
+</view>
+{{/name}} -->
+<view>
+FirstName:{{firstName}},LastName:{{lastName}}
+</view>
+</template>
+
+<view class="container">
+
+<block wx:if="{{true}}">
+  <view> view1 </view>
+  <view> view2 </view>
+</block>
+
+
+  <view hidden="{{isHidden?true:false}}"> view11111111111 </view>
+  <view hidden="{{isHidden?true:false}}"> view22222222222 </view>
+
+<block>
+<template is="staffName" data="{{...staffA}}"></template>
+<template is="staffName" data="{{...staffB}}"></template>
+</block>
+<switch wx:for="{{objectArray}}" wx:key="unique" style="display: block;"> {{item.id}} </switch>
+<button bindtap="switch"> Switch </button>
+<button bindtap="addToFront"> Add to the front </button>
+
+<switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
+<button bindtap="addNumberToFront"> Add to the front </button>
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+<!--数据绑定-->
+<view>{{hello}}</view>
+<!--条件判断-->
+<view wx:if="{{view=='haha'}}">haah</view>
+<view wx:elif="{{view=='app'}}">app</view>
+<view wx:else>>>pppppppp</view>
+<view wx:for="{{[1,2,3]}}">
+  {{item}}
+</view>
+<view wx:for=" {{[1,2,3] + ' '}}">
+  {{item}}
+</view>
+<view hidden="{{isHidden? true : false }}">isHidden:{{isHidden}}</view>
+
+<view bindtap="add"> {{count}} </view>
+  <view class="remind-box" wx:if="{{loading}}">
+    <image class="remind-img" src="/images/more/loading.gif"></image>
+  </view>
+  <block wx:else>
+      <image class="title" src="/images/more/title8.png"></image>
+  </block>
+<!--for循环-->
+  <view wx:for="{{arr}}">{{item}}</view>
+  <view wx:for="{{names}}">
+  {{index}}-----------firstName:{{item.firstName}}--lastName:{{item.lastName}}
+ </view>
+ </view>
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
