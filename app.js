@@ -10,6 +10,7 @@ App({
       },
       success: function(res) {
         if (res.data.code == 0) {
+
           wx.setStorageSync('mallName', res.data.data.value);
         }
       }
@@ -37,6 +38,9 @@ App({
       }
     })
     this.login();
+  },
+  onError:function(msg){
+    console.log(">>>>>>>>>>>error>>>>>>>>\n"+msg);
   },
   login : function () {
     var that = this;

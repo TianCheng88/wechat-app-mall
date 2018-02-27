@@ -1,3 +1,5 @@
+
+var util = require('../../utils/util.js')
 //login.js
 //获取应用实例
 var app = getApp();
@@ -13,6 +15,7 @@ Page({
     });
   },
   onLoad:function(){
+    util.sayHello("Tianjc");
     var that = this
     wx.setNavigationBarTitle({
       title: wx.getStorageSync('mallName')
@@ -24,7 +27,9 @@ Page({
     })
   },
   onShow:function(){
-
+    var pages=getCurrentPages();
+    console.log("getCurrentPages:");
+    console.log(pages);
   },
   onReady: function(){
     var that = this;

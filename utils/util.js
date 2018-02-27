@@ -16,6 +16,11 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+function sayHello(name){
+  console.log("hello,"+name);
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  sayHello:sayHello
 }
