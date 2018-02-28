@@ -5,23 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-  hello:"测试",
-  loading:true,
-  arr:[1,2,3,4,5],
-  names: [{ firstName: "A", lastName: "AAAA" }, { firstName: "B", lastName: "BBBB" }],
-  staffA:{ firstName: "A", lastName: "AAAA" },
-  staffB: { firstName: "B", lastName: "BBBB" },
-  count:1,
-  isHidden:true,
-  objectArray: [
-    { id: 5, unique: 'unique_5' },
-    { id: 4, unique: 'unique_4' },
-    { id: 3, unique: 'unique_3' },
-    { id: 2, unique: 'unique_2' },
-    { id: 1, unique: 'unique_1' },
-    { id: 0, unique: 'unique_0' },
-  ],
-  numberArray: [1, 2, 3, 4]
+    hello: "测试",
+    loading: true,
+    arr: [1, 2, 3, 4, 5],
+    names: [{ firstName: "A", lastName: "AAAA" }, { firstName: "B", lastName: "BBBB" }],
+    staffA: { firstName: "A", lastName: "AAAA" },
+    staffB: { firstName: "B", lastName: "BBBB" },
+    count: 1,
+    isHidden: true,
+    objectArray: [
+      { id: 5, unique: 'unique_5' },
+      { id: 4, unique: 'unique_4' },
+      { id: 3, unique: 'unique_3' },
+      { id: 2, unique: 'unique_2' },
+      { id: 1, unique: 'unique_1' },
+      { id: 0, unique: 'unique_0' },
+    ],
+    numberArray: [1, 2, 3, 4],
+    item: {
+      index: 0,
+      msg: 'this is a template',
+      time: '2016-09-15'
+    }
   },
   switch: function (e) {
     const length = this.data.objectArray.length
@@ -54,51 +59,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var that=this;
-  setTimeout(function(){
-    that.setData({
-      loading:false,
-      isHidden: false,
-    });
-  },3000)
-  this.setData({ arr: [1, 2, 3, 4, 5, 6]});
+    var that = this;
+    setTimeout(function () {
+      that.setData({
+        loading: false,
+        isHidden: false,
+      });
+    }, 3000)
+    this.setData({ arr: [1, 2, 3, 4, 5, 6] });
   },
-add:function(){
-this.setData({count:this.data.count+1})
+  add: function () {
+    this.setData({ count: this.data.count + 1 })
 
-},
+  },
+  tapName: function (event) {
+    console.log(event.currentTarget.dataset);
+    console.log(event.currentTarget.dataset.hi);
+    console.log(event);
+  },
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

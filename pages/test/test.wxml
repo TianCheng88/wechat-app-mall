@@ -11,7 +11,14 @@ FirstName:{{firstName}},LastName:{{lastName}}
 FirstName:{{firstName}},LastName:{{lastName}}
 </view>
 </template>
-
+<template name="msgItem">
+<view>
+<text>{{index}}:{{msg}}</text>
+<text>Time:{{time}}</text>
+</view>
+</template>
+<template is="msgItem" data="{{...item}}"></template>
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
 <view class="container">
 
 <block wx:if="{{true}}">
