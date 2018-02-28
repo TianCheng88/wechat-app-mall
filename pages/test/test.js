@@ -41,6 +41,20 @@ Page({
       objectArray: this.data.objectArray
     })
   },
+  navigateToTest2:function(event){
+    console.log("*********navigateToTest2*********");
+    console.log(event);
+    wx.navigateTo({
+      url: "/pages/test2/test2"
+    });
+  },
+  redirectToTest2: function (event) {
+    console.log("*********navigateToTest2*********");
+    console.log(event);
+    wx.redirectTo({
+      url: "/pages/test2/test2"
+    });
+  },
   addToFront: function (e) {
     const length = this.data.objectArray.length
     this.data.objectArray = [{ id: length, unique: 'unique_' + length }].concat(this.data.objectArray)
@@ -59,7 +73,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("test>>>>onLoad");
   },
 
   /**
@@ -84,11 +98,26 @@ Page({
     console.log(event.currentTarget.dataset.hi);
     console.log(event);
   },
+  handleTap1:function(event){
+    console.log(">>>>>>>>>>>>>handleTap1111111");
+  },
+  handleTap2: function (event) {
+    console.log(">>>>>>>>>>>>>handleTap2222222");
+  },
+  handleTap3: function (event) {
+    console.log(">>>>>>>>>>>>>handleTap33333333");
+  },
+  onHide:function(){
+    console.log("test>>>>onHide");
+  },
+  onShow: function () {
+    console.log("test>>>>onShow");
+  },
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log("test>>>>onUnload");
   },
 
   /**

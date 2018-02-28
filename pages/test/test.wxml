@@ -19,14 +19,21 @@ FirstName:{{firstName}},LastName:{{lastName}}
 </template>
 <template is="msgItem" data="{{...item}}"></template>
 <view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
+<!--事件绑定-->
+<view id="outer" catchtap="handleTap1">
+  outer view
+  <view id="middle" bindtap="handleTap2">
+    middle view
+    <view id="inner" bindlongpress="handleTap3">
+      inner view
+    </view>
+  </view>
+</view>
+
+<button bindtap="navigateToTest2"> Navigate To Test2</button>
+<button bindtap='redirectToTest2'>Redirect To Test2</button>
+
 <view class="container">
-
-<block wx:if="{{true}}">
-  <view> view1 </view>
-  <view> view2 </view>
-</block>
-
-
   <view hidden="{{isHidden?true:false}}"> view11111111111 </view>
   <view hidden="{{isHidden?true:false}}"> view22222222222 </view>
 
@@ -40,7 +47,7 @@ FirstName:{{firstName}},LastName:{{lastName}}
 
 <switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
 <button bindtap="addNumberToFront"> Add to the front </button>
-<block wx:for="{{[1, 2, 3]}}">
+<block wx:for="{{[1, 2, 3]}}" wx:key="*this">
   <view> {{index}}: </view>
   <view> {{item}} </view>
 </block>
@@ -50,12 +57,6 @@ FirstName:{{firstName}},LastName:{{lastName}}
 <view wx:if="{{view=='haha'}}">haah</view>
 <view wx:elif="{{view=='app'}}">app</view>
 <view wx:else>>>pppppppp</view>
-<view wx:for="{{[1,2,3]}}">
-  {{item}}
-</view>
-<view wx:for=" {{[1,2,3] + ' '}}">
-  {{item}}
-</view>
 <view hidden="{{isHidden? true : false }}">isHidden:{{isHidden}}</view>
 
 <view bindtap="add"> {{count}} </view>
@@ -66,13 +67,13 @@ FirstName:{{firstName}},LastName:{{lastName}}
       <image class="title" src="/images/more/title8.png"></image>
   </block>
 <!--for循环-->
-  <view wx:for="{{arr}}">{{item}}</view>
-  <view wx:for="{{names}}">
+  <view wx:for="{{arr}}" wx:key="*this">{{item}}</view>
+  <view wx:for="{{names}}" wx:key="firstName">
   {{index}}-----------firstName:{{item.firstName}}--lastName:{{item.lastName}}
  </view>
  </view>
-<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
-  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i" wx:key="*this">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j" wx:key="*this">
     <view wx:if="{{i <= j}}">
       {{i}} * {{j}} = {{i * j}}
     </view>
