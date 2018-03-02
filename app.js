@@ -68,6 +68,8 @@ App({
             code: res.code
           },
           success: function(res) {
+
+            console.log(res);
             if (res.data.code == 10000) {
               // 去注册
               that.registerUser();
